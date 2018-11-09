@@ -4,6 +4,10 @@ Service {
 
 class { 'nginx': }
 
+file { [ '/var/www', '/var/www/html' ]:
+  ensure => 'directory',
+}
+
 nginx::resource::vhost { 'default':
   www_root => '/var/www/html',
 }
